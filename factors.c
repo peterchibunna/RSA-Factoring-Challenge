@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long *factorize(long n)
+long long *factorize(long n)
 {
 	long i;
-	static long r[2];
+	static long long r[2];
 
 	for (i = 2; i < n; i++)
 	{
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	char *line = NULL, *ptr;
 	size_t len = 0;
 	ssize_t read;
-	long *factors, number;
+	long long *factors, number;
 
 	(void) factors;
 
@@ -47,10 +47,10 @@ int main(int argc, char *argv[])
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		number = strtol(line, &ptr, 10);
+		number = strtoll(line, &ptr, 10);
 		factors = factorize(number);
 
-		printf("%ld=%ld*%ld\n", number, factors[0], factors[1]);
+		printf("%lld=%lld*%lld\n", number, factors[0], factors[1]);
 	}
 
 	fclose(fp);
