@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /*unsigned long long*/
-void *factorize(unsigned long long n)
+unsigned long long *factorize(unsigned long long n)
 {
 	unsigned long long i;
 	static unsigned long long r[2];
