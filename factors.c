@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+* factorize - Prints the 2 factors of n
+* @n: The number to factorize
+* Return: Nothing
+*/
 void *factorize(unsigned long long int n)
 {
 	unsigned long i;
@@ -16,11 +21,16 @@ void *factorize(unsigned long long int n)
 		}
 	}
 
-	printf("%llu=%lu*%lu\n", n, (unsigned long)n, (unsigned long)1);
+	printf("%llu=%lu*%lu\n", n, n, (unsigned long)1);
 	return (0);
 }
 
-
+/**
+* main - Entry point
+* @argc: Arguments count
+* @argv: Arguments vector
+* Return: 0 (success) always
+*/
 int main(int argc, char *argv[])
 {
 	FILE *fp;
@@ -32,6 +42,7 @@ int main(int argc, char *argv[])
 
 	(void) factors;
 	(void) ptr;
+	(void) number;
 
 	if (argc != 2)
 	{
