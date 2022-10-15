@@ -47,11 +47,10 @@ int main(int argc, char *argv[])
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		number = strtoull(line, NULL, 10);
-		printf("%llu\n", number);
-		/*factors = factorize(number);
+		number = strtoull(line, &ptr, 10);
+		factors = factorize(number);
 
-		printf("%llu=%lu*%lu\n", number, factors[0], factors[1]);*/
+		printf("%llu=%lu*%lu\n", number, factors[0], factors[1]);
 	}
 
 	fclose(fp);
