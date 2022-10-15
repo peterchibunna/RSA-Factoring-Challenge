@@ -23,6 +23,7 @@ if __name__ == "__main__":
 		with open(filename, 'r') as file:
 			for line in file.readlines():
 				num = int(line.strip())
+# 				print(num)
 				factors = factorize(num)
 				print("{:d}={:d}*{:d}".format(num, factors[0], factors[1]))
 	else:
