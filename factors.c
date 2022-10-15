@@ -2,47 +2,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**
-* factorize - Prints the 2 factors of n
-* @n: The number to factorize
-* Return: Nothing
-*/
-void *factorize(unsigned long long int n)
+/*unsigned long long*/
+void *factorize(unsigned long long n)  
 {
-	unsigned long i;
-	/*static unsigned long r[2];*/
-	/*(void)r;*/
+	unsigned long long i;
+	/*static unsigned long long r[2];*/
+
 	for (i = 2; i < n; i++)
 	{
 		if (n % i == 0)
 		{
+			/*r[1] = (unsigned long long)i;*/
+			/*r[0] = (unsigned long long)n / i;*/
 			printf("%llu=%llu*%llu\n", n, (unsigned long long)n / i, (unsigned long long)i);
 			return (0);
+			/*return (r);*/
 		}
 	}
 
-	printf("%llu=%llu*%lu\n", n, n, (unsigned long)1);
+	/*r[1] = (unsigned long long)1;*/
+	/*r[0] = (unsigned long long)n;*/
+	printf("%llu=%llu*%llu\n", n, (unsigned long long)n, (unsigned long long)1);
 	return (0);
+	/*return (r);*/
 }
 
-/**
-* main - Entry point
-* @argc: Arguments count
-* @argv: Arguments vector
-* Return: 0 (success) always
-*/
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char *line = NULL, *ptr;
 	size_t len = 0;
 	ssize_t read;
-	unsigned long *factors;
-	unsigned long long int number;
+	unsigned long long *factors;
+	unsigned long long number;
 
 	(void) factors;
-	(void) ptr;
-	(void) number;
 
 	if (argc != 2)
 	{
@@ -56,7 +51,11 @@ int main(int argc, char *argv[])
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		factorize(strtoull(line, &ptr, 10));
+		number = strtoull(line, &ptr, 10);
+
+		factorize(number);
+		/*factors = factorize(number);*/
+		/*printf("%llu=%llu*%llu\n", number, factors[0], factors[1]);*/
 	}
 
 	fclose(fp);
