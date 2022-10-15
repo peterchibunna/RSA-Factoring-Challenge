@@ -23,8 +23,8 @@ if __name__ == "__main__":
 		with open(filename, 'r') as file:
 			for line in file.readlines():
 				num = int(line.strip())
-# 				print(num)
-				factors = factorize(num)
-				print("{:d}={:d}*{:d}".format(num, factors[0], factors[1]))
+# 				print(num < 0)
+				factors = factorize(abs(num))
+				print("{:d}={:d}*{:d}".format(num, factors[0], -1 * factors[1] if num < 0 else factors[1]))
 	else:
 		sys.exit("Usage: {} <file>".format(sys.argv[0]))
