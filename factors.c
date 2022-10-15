@@ -16,12 +16,12 @@ void *factorize(unsigned long long int n)
 	{
 		if (n % i == 0)
 		{
-			printf("%llu=%lu*%lu\n", n, (unsigned long)n / i, (unsigned long)i);
+			printf("%llu=%llu*%llu\n", n, (unsigned long long)n / i, (unsigned long long)i);
 			return (0);
 		}
 	}
 
-	printf("%llu=%lu*%lu\n", n, n, (unsigned long)1);
+	printf("%llu=%llu*%lu\n", n, n, (unsigned long)1);
 	return (0);
 }
 
