@@ -2,24 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned long *factorize(unsigned long long int n)
+void *factorize(unsigned long long int n)
 {
 	unsigned long i;
-	static unsigned long r[2];
-
+	/*static unsigned long r[2];*/
+	/*(void)r;*/
 	for (i = 2; i < n; i++)
 	{
 		if (n % i == 0)
 		{
-			r[1] = (unsigned long)i;
-			r[0] = (unsigned long)n / i;
-			return (r);
+			printf("%llu=%lu*%lu\n", n, (unsigned long)n / i, (unsigned long)i);
+			return (0);
 		}
 	}
 
-	r[1] = (unsigned long)1;
-	r[0] = (unsigned long)n;
-	return (r);
+	printf("%llu=%lu*%lu\n", n, (unsigned long)n, (unsigned long)1);
+	return (0);
 }
 
 
@@ -47,10 +45,7 @@ int main(int argc, char *argv[])
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		number = strtoull(line, &ptr, 10);
-		factors = factorize(number);
-
-		printf("%llu=%lu*%lu\n", number, factors[0], factors[1]);
+		factorize(strtoull(line, &ptr, 10));
 	}
 
 	fclose(fp);
