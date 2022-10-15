@@ -13,8 +13,8 @@ import sys
 def factorize(number):
 	for i in range(2, number):
 		if number % i == 0:
-			return [i, int(number / i)]
-	return [1, int(number)]
+			return [int(number / i), i]
+	return [int(number), 1]
 
 
 if __name__ == "__main__":

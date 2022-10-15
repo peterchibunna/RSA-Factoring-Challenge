@@ -11,14 +11,14 @@ unsigned long *factorize(unsigned long long int n)
 	{
 		if (n % i == 0)
 		{
-			r[0] = (unsigned long)i;
-			r[1] = (unsigned long)n / i;
+			r[1] = (unsigned long)i;
+			r[0] = (unsigned long)n / i;
 			return (r);
 		}
 	}
 
-	r[0] = (unsigned long)1;
-	r[1] = (unsigned long)n;
+	r[1] = (unsigned long)1;
+	r[0] = (unsigned long)n;
 	return (r);
 }
 
