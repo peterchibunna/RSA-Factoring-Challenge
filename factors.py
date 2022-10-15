@@ -1,15 +1,14 @@
-#!/opt/homebrew/bin/python3
 #!/usr/bin/python3
 import sys
 
-def factorize(num):
-    """ Generate 2 factors for a given number"""
-    factor1 = 2
-    while (num % factor1):
-        if (factor1 <= num):
-            factor1 += 1
-    factor2 = num // factor1
-    return (factor2, factor1)
+# def factorize(num):
+#     """ Generate 2 factors for a given number"""
+#     factor1 = 2
+#     while (num % factor1):
+#         if (factor1 <= num):
+#             factor1 += 1
+#     factor2 = num // factor1
+#     return (factor2, factor1)
 
 def factorize(number):
 	for i in range(2, number):
