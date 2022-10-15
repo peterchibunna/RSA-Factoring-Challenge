@@ -2,29 +2,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*unsigned long long*/
-unsigned long long *factorize(unsigned long long n)
+long *factorize(long n)
 {
-	unsigned long long i;
-	static unsigned long long r[2];
+	long i;
+	static long r[2];
 
 	for (i = 2; i < n; i++)
 	{
 		if (n % i == 0)
 		{
-			r[1] = (unsigned long long)i;
-			r[0] = (unsigned long long)n / i;
-			/*printf("%llu=%llu*%llu\n", n, 
-			(unsigned long long)n / i, (unsigned long long)i);
-			return (0);*/
+			r[0] = i;
+			r[1] = n / i;
 			return (r);
 		}
 	}
 
-	r[1] = (unsigned long long)1;
-	r[0] = (unsigned long long)n;
-	/*printf("%llu=%llu*%d\n", n, (unsigned long long)n, 1);
-	return (0);*/
+	r[0] = 1;
+	r[1] = n;
 	return (r);
 }
 
@@ -35,8 +29,7 @@ int main(int argc, char *argv[])
 	char *line = NULL, *ptr;
 	size_t len = 0;
 	ssize_t read;
-	unsigned long long *factors;
-	unsigned long long number;
+	long *factors, number;
 
 	(void) factors;
 
@@ -50,13 +43,14 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 		exit(EXIT_FAILURE);
 
+	factors = factorize(4);
+
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		number = strtoull(line, &ptr, 10);
-
-		/*factorize(number);*/
+		number = strtol(line, &ptr, 10);
 		factors = factorize(number);
-		printf("%llu=%llu*%llu\n", number, factors[0], factors[1]);
+
+		printf("%ld=%ld*%ld\n", number, factors[0], factors[1]);
 	}
 
 	fclose(fp);
