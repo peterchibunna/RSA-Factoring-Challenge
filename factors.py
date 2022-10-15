@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 import sys
 
-# def factorize(num):
-#     """ Generate 2 factors for a given number"""
-#     factor1 = 2
-#     while (num % factor1):
-#         if (factor1 <= num):
-#             factor1 += 1
-#     factor2 = num // factor1
-#     return (factor2, factor1)
+def factorize(num):
+    """ Generate 2 factors for a given number"""
+    factor1 = 2
+    while (num % factor1):
+        if (factor1 <= num):
+            factor1 += 1
+    factor2 = num // factor1
+    return [factor2, factor1]
 
-def factorize(number):
-	for i in range(2, number):
-		if number % i == 0:
-			return [i, int(number / i)]
-	return [1, int(number)]
+# def factorize(number):
+# 	for i in range(2, number):
+# 		if number % i == 0:
+# 			return [i, int(number / i)]
+# 	return [1, int(number)]
 
 
 if __name__ == "__main__":
