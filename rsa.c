@@ -70,9 +70,11 @@ int main(int argc, char *argv[])
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
 		number = strtoull(line, &ptr, 10);
-		factors = factorize(number);
-
-		printf("%llu=%llu*%llu\n", number, factors[1], factors[0]);
+		if (number <= 18446744073709551615)
+		{
+			factors = factorize(number);
+			printf("%llu=%llu*%llu\n", number, factors[1], factors[0]);
+		}
 	}
 
 	fclose(fp);

@@ -1,6 +1,27 @@
 #define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+int is_prime(unsigned long long int n)
+{
+	int i, flag = 1;
+	
+	for (i = 2; i <= sqrt(n); i++)
+	{
+		/* If n is divisible by any number between*/
+		/* 2 and n/2, it is not prime*/
+		if (n % i == 0) {
+			flag = 0;
+			break;
+		}
+	}
+
+	if (n <= 1)
+		flag = 0;
+
+	return (flag);
+}
 
 unsigned long long *factorize(long n)
 {
